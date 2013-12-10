@@ -1,0 +1,16 @@
+{% extends 'smartpages/default.html' %}
+
+{% block pageheader %}{% endblock %}
+
+{% block content %}
+	{% for c in parent_cats %}
+		<h2>{{c.name}}</h2>
+		{% if c.get_child_cats_and_objects %}
+			<ul>
+				{% for child in c.get_child_cats_and_objects %}
+				<li><a href="{{child.url}}">{{child.name}}</a></li>
+				{% endfor %}
+			</ul>
+		{% endif %}
+	{% endfor %}
+{% endblock %} 

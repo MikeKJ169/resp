@@ -1,0 +1,33 @@
+{% extends "admin/base_site.html" %}
+{% load i18n %}
+{% load admin_list %}
+
+{% block breadcrumbs %}<div class="breadcrumbs"><a href="/admin/">{% trans 'Home' %}</a> &rsaquo;  {% if title %} &rsaquo; {{ title }}{% endif %}</div>{% endblock %}
+
+{% block content_title %}<h1>Log Activity</h1>{% endblock %}
+
+{% block content %}
+<div>
+<form action = "." method="get">
+{{ form.as_p }}
+<input type="submit" name="filter" value="Filter" style="margin-left: 30px;"/>
+</form>
+</div>
+
+<div>&nbsp;</div>
+<div>Type Breakdown, Number of contacts per Type</div>
+{% regroup set by type as list %}
+<ul>
+    {% for type in list %}
+    <li>{{ type.grouper }}
+        <ul>
+            {% for item in type.list %}
+                <li>{{ item.name }}</li>
+            {% endfor %}
+        </ul>
+     </li>
+     {% endfor %}
+</ul>
+
+{% endblock %}
+

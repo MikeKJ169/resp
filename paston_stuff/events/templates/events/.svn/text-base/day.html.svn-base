@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}<h2>Events</h2>{% endblock %}
+{% block meta_title %}<title>Events</title>{% endblock %}
+{% load events_tags %}
+
+{% block content %}
+{% month_cal 2009 09 %}
+    {% if events %}
+	{% load thumbnails_tags %}
+        {% for event in events %}
+		<div class="event-listing color{% cycle 1,2 %}">
+			{%if event.picture%}
+			<img style="float:right;" src="{{ event.get_picture_url|thumbnail:"maxwidth=175,maxheight=80" }}" alt="" />
+			{% endif %}
+			<div class="event-listing-text">
+			<h4><a href="{{ event.get_absolute_url }}">{{ event.start_date|date:"g:i a" }} - {{ event.title }}</a></h4>
+                        Starts on {{ event.start_date|date:"l\, \t\h\e jS \o\f F \a\t g:i a" }}<br />
+                        Ends on {{ event.end_date|date:"l\, \t\h\e jS \o\f F \a\t g:i a" }}<br />
+			<p>{{ event.short_desc }}</p>
+                        {% if event.user_is_attending %}
+                        <a href="/events/unattend-event/{{ event.pk }}/">Do not attend this event.</a>
+                        {% else %}
+                        <a href="/events/attend-event/{{ event.pk }}/">Attend this event.</a>
+                        {% endif %}
+		</div>
+			<div style="clear:both"></div>
+		</div>
+        {% endfor %}
+    {% else %}
+        <p>No events yet added.</p>
+    {% endif %}
+{% endblock %}

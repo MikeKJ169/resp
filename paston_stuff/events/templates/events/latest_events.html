@@ -1,0 +1,7 @@
+{% if latest_events_list %}
+<h3>Latest events</h3>
+{% endif %}
+{% for event in latest_events_list %}
+<h4><a href="{{event.get_absolute_url}}">{{event.title}}</a></h4>
+<p>{{event.short_desc}}</p>
+{% endfor %}

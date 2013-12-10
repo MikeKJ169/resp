@@ -1,0 +1,46 @@
+8
+
+dir
+211
+http://dev.paston.co.uk/paston_stuff/branches/paston_stuff_for_1.0/paston_stuff/distfiles
+http://dev.paston.co.uk/paston_stuff
+
+
+
+2010-01-14T10:15:40.621228Z
+211
+m.harris
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+aea58f7d-1111-0410-bdb3-df82256382a1
+
+media
+dir
+
+urls.py
+file
+
+
+
+
+2010-01-14T10:15:59.000000Z
+97fa13d9d0df21a98877b20218bace99
+2010-01-14T10:15:40.621228Z
+211
+m.harris
+
+templates
+dir
+

@@ -1,0 +1,70 @@
+{% extends 'base_with_sidequote.html' %}
+{% block extrahead %}
+        <title>{% block meta_title %}{% if content.meta_title %}{{content.meta_title}}{% else %}Search Results for 7KBW{% endif %}{% endblock %}</title>
+        {% block meta_desc %}<meta name="description" content="{% if content.meta_desc %}{{content.meta_desc}}{% else %}7KBW search results{% endif %}" />{% endblock %}
+        {% block meta_keywords %}<meta name="keywords" content="{% if content.meta_keywords %}{{content.meta_keywords}}{%else%}{%endif%}" />{% endblock %}
+{% endblock %}
+
+{% block content %}
+{% load search %}
+
+<h1>Search Results</h1>
+{{ content }}
+{% if not results.smartpages and not results.barristers and not results.case and not results.article and not results.news %}
+<p>Your search returned no results.</p>
+{% else %}
+
+        {% if results.barristers %}
+                <h3>Barristers</h3>
+                <div>
+                <ul class="barrister-listing-column">
+            {% for barrister in results.barristers %}
+                <li class="barrister-listing-tinyrow"><span class="barrister-listing-individual"><a href="/barristers/insitecv/{{barrister.public_cv_slug}}">{{ barrister }}</a></span></li>
+                {% if forloop.counter|divisibleby:barrister_column_length %}</ul><ul class="barrister-listing-column">{% endif %}
+                {% if forloop.last %}
+                    {% for pad in padlist %}<li class="barrister-listing-tinyrow"><span class="barrister-listing-individual">&nbsp;</span></li>{% endfor %}
+                {% endif %}
+            {% endfor %}
+                </ul>
+                </div>
+        {% endif %}
+<div style="clear:both;"></div>
+        {% if results.case %}
+            <h3>Cases</h3>
+            <ul>
+          {% for c in results.case %}
+              <li><a class="newsitem-link" href="{{ c.get_absolute_url }}">{{ c.title }}</a></li>
+          {% endfor %}
+            </ul>
+        {% endif %}
+        
+ 
+        {% if results.article %}
+            <h3>Articles</h3>
+            <ul>
+          {% for p in results.article %}
+              <li><a class="newsitem-link" href="{{ p.get_absolute_url }}">{{ p.title }}</a></li>
+          {% endfor %}
+            </ul>
+        {% endif %}
+
+        {% if results.news %}
+            <h3>News</h3>
+            <ul>
+          {% for n in results.news %}
+              <li><a class="newsitem-link" href="{{ n.get_absolute_url }}">{{ n.title }}</a></li>
+          {% endfor %}
+            </ul>
+        {% endif %}
+        {% if results.smartpages %}
+                <h3>Pages</h3>
+                <ul>
+                {% for smartpage in results.smartpages %}
+                <li><a class="newsitem-link" href="/{{smartpage.slug}}/">{{smartpage.name}}</a></li>
+                {% endfor %}
+                </ul>
+        {% endif %}
+
+
+{% endif %}
+{% endblock %}

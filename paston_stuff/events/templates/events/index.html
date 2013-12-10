@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}<h2>Events</h2>{% endblock %}
+{% block meta_title %}<title>Events</title>{% endblock %}
+{% load events_tags %}
+
+{% block content %}
+{% month_cal 2009 09 %}
+    {% if events %}
+	{% load thumbnails_tags %}
+        {% for event in events %}
+		<div class="event-listing color{% cycle 1,2 %}">
+			{%if event.picture%}
+			<img style="float:right;" src="{{ event.get_picture_url|thumbnail:"maxwidth=175,maxheight=80" }}" alt="" />
+			{% endif %}
+			<div class="event-listing-text">
+			<h4><a href="{{ event.get_absolute_url }}">{{ event.pub_date|date:"d/m/Y" }} - {{ event.title }}</a></h4>
+			<p>{{ event.short_desc }}</p>
+		</div>
+			<div style="clear:both"></div>
+		</div>
+        {% endfor %}
+    {% else %}
+        <p>No events yet added.</p>
+    {% endif %}
+{% endblock %}

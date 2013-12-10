@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}<h2>News</h2>{% endblock %}
+{% block meta_title %}<title>News</title>{% endblock %}
+
+{% block content %}
+    {% if newsitems %}
+	{% load thumbnails_tags %}
+        {% for newsitem in newsitems %}
+		<div class="newsitem-listing color{% cycle 1,2 %}">
+			{%if newsitem.picture%}
+			<img style="float:right;" src="{{ newsitem.get_picture_url|thumbnail:"maxwidth=175,maxheight=80" }}" alt="" />
+			{% endif %}
+
+			<div class="newsitem-listing-text">
+			<h4><a href="{{ newsitem.get_absolute_url }}">{{ newsitem.pub_date|date:"d/m/Y" }} - {{ newsitem.title }}</a></h4>
+			<p>{{ newsitem.short_desc }}</p>
+		</div>
+			<div style="clear:both"></div>
+		</div>
+        {% endfor %}
+    {% else %}
+        <p>No news items yet added.</p>
+    {% endif %}
+{% endblock %}

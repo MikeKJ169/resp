@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block extrahead %}
+{% block meta_title %}<title>{% if content.meta_title %}{{content.meta_title}}{% else %}Contact{% endif %}</title>{% endblock %}
+        {% block meta_desc %}<meta name="description" content="{% if content.meta_desc %}{{content.meta_desc}}{% else %}{% endif %}" />{% endblock %}
+        {% block meta_keywords %}<meta name="keywords" content="{% if content.meta_keywords %}{{content.meta_keywords}}{%else%}{%endif%}" />{% endblock %}
+{% endblock %}
+{% block content %}
+<div style="float:left; width: 40%; margin-left:15px;">{% if content %}{{ content.content }}{% endif %}</div>
+<div style="float:left; margin:50px 5px 0px 50px; width: 50%;">
+<h3>Send a Message ...</h3>
+<form action="." method="post" id="contactForm">
+{{form.as_p}}
+<input type="submit" value="Send your Message" id="contactSubmitButton" /><br />
+* = required fields<br /><br />
+</form>
+{% endblock %}

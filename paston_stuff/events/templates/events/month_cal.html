@@ -1,0 +1,26 @@
+<table class="cal_month_calendar">
+
+<tr>
+
+{% for day in headers %}
+
+<th>{{ day|date:"D"|slice:":2" }}</hd>
+
+{% endfor %}
+
+</tr>
+
+{% for week in calendar %}
+
+<tr>
+
+{% for day in week %}
+<td class="{% if not day.in_month %}cal_not_in_month"{% endif %}{% if day.today %} cal_today{% endif %}">{% if day.event %}<a href="/events/calendar/{{ day.day|date:"Y/m/d" }}/"">{{ day.day|date:"j" }}</a>{% else %}{{ day.day|date:"j" }}{% endif %}</td>
+
+{% endfor %}
+
+</tr>
+
+{% endfor %}
+
+</table>

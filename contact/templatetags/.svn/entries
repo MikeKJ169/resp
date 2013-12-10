@@ -1,0 +1,52 @@
+8
+
+dir
+10
+http://dev.paston.co.uk/ring/trunk/contact/templatetags
+http://dev.paston.co.uk/ring
+
+
+
+2008-12-18T10:39:12.905165Z
+3
+mike
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+c8fd5cab-6739-4722-b36b-6d3d5c2286ab
+
+__init__.py
+file
+
+
+
+
+2008-12-18T10:39:29.000000Z
+d41d8cd98f00b204e9800998ecf8427e
+2008-12-18T10:39:12.905165Z
+3
+mike
+
+contactustags.py
+file
+
+
+
+
+2008-12-18T10:39:29.000000Z
+caf4da50a8ae8750588d0191d4b83aa5
+2008-12-18T10:39:12.905165Z
+3
+mike
+

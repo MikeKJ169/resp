@@ -1,0 +1,2 @@
+This is paston_stuff for Django 1.0.2 and above
+

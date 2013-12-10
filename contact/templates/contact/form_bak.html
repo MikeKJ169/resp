@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block extrahead %}
+        {% block meta_title %}<title>{% if smartpage.meta_title %}{{smartpage.meta_title}}{% else %}The RiNG{% endif %}</title>{% endblock %}
+        {% block meta_desc %}<meta name="description" content="{% if smartpage.meta_desc %}{{smartpage.meta_desc}}{% else %}{% endif %}" />{% endblock %}
+        {% block meta_keywords %}<meta name="keywords" content="{% if smartpage.meta_keywords %}{{smartpage.meta_keywords}}{%else%}{%endif%}" />{% endblock %}
+{% endblock %}
+{% block content %}
+<div class="jqColumn" style="float:left; width: 450px; margin-left:15px;">{% if smartpage %}{{ smartpage.content }}{% endif %}</div>
+<div class="jqColumn" style="float:right; margin-right:15px;">
+<form action="." method="post" id="contactForm">
+{{form.as_p}}
+<input type="submit" value="Contact Us" id="contactSubmitButton" /><br />
+* = required fields<br /><br />
+</div>
+{% endblock %}
+

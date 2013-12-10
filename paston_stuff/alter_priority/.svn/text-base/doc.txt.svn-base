@@ -1,0 +1,19 @@
+How to get priority up / down buttons in your model
+===================================================
+
+
+You need this in your project-level urls.py:
+
+    (r'^alter-priority/', include('alter_priority.urls')),
+
+This at the top of your models.py:
+
+    from alter_priority.views import priority_controls_func
+
+This in the model class:
+
+    priority_controls = priority_controls_func
+
+and 'priority_controls' in the list_display tuple
+
+That should be it

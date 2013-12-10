@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/paston_stuff/!svn/ver/165/branches/paston_stuff_for_1.0/paston_stuff/news/templates/news
+END
+index.html
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/paston_stuff/!svn/ver/165/branches/paston_stuff_for_1.0/paston_stuff/news/templates/news/index.html
+END
+latest_news.html
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/paston_stuff/!svn/ver/165/branches/paston_stuff_for_1.0/paston_stuff/news/templates/news/latest_news.html
+END
+newsitem.html
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/paston_stuff/!svn/ver/165/branches/paston_stuff_for_1.0/paston_stuff/news/templates/news/newsitem.html
+END

@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/paston_stuff/!svn/ver/204/branches/paston_stuff_for_1.0/paston_stuff/events
+END
+admin.py
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/paston_stuff/!svn/ver/204/branches/paston_stuff_for_1.0/paston_stuff/events/admin.py
+END
+manager.py
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/paston_stuff/!svn/ver/201/branches/paston_stuff_for_1.0/paston_stuff/events/manager.py
+END
+views.py
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/paston_stuff/!svn/ver/204/branches/paston_stuff_for_1.0/paston_stuff/events/views.py
+END
+__init__.py
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/paston_stuff/!svn/ver/201/branches/paston_stuff_for_1.0/paston_stuff/events/__init__.py
+END
+models.py
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/paston_stuff/!svn/ver/204/branches/paston_stuff_for_1.0/paston_stuff/events/models.py
+END
+urls.py
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/paston_stuff/!svn/ver/204/branches/paston_stuff_for_1.0/paston_stuff/events/urls.py
+END

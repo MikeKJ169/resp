@@ -1,0 +1,121 @@
+{% autoescape off %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+        <head> 
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+
+        {% block meta_title %}<title>{% if meta_title %}{{meta_title}}{% else %}{% if title %}{{title}}{% else %}Default title - change me{% endif %}{% endif %}</title>{% endblock %}
+        {% block meta_desc %}<meta name="description" content="{% if meta_desc %}{{meta_desc}}{% else %}Default description - change me{% endif %}" />{% endblock %}
+        {% block meta_keywords %}<meta name="keywords" content="{% if meta_keywords %}{{meta_keywords}}{%else%}Default, keywords, change, me{%endif%}" />{% endblock %}
+
+		<meta name="robots" content="index,follow" />
+                <link href='http://fonts.googleapis.com/css?family=Lora:400,400italic,700' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" media="screen" href="/media/css/default.css" />
+		<!--[if IE]> <link rel="stylesheet" media="screen" href="/media/css/ie.css" type="text/css" /> <![endif]-->
+                <script type="text/javascript" src="/media/js/jquery-1.9.1.min.js"></script>
+                <script type="text/javascript" src="/media/js/jquery.innerfade.js"></script>
+                <script type="text/javascript" src="/media/js/runOnLoad.js"></script>
+
+		{% block extrahead %}{% endblock %}
+	</head>
+
+	<body style={% block bodyback %}"background-image:url(/media/images/base/homepage.jpg);"{% endblock %}>
+                {% load thumbnails_tags %}
+		<div id="container">
+			<div id="header">
+                        </div>
+<div style="clear:both;"></div>
+                        <div id="menu" class="rounded">
+                            {% load smartpage_tags %}{% smartpage_list "main-menu" as pages %}
+                            <ul>
+                                {% for page in pages %}
+                                    <li><a {% ifequal request_meta.PATH_INFO page.url %}class="zcurrent_link"{% else %}{% ifequal sp.url page.url %}class="zcurrent_link"{% else %}class="noncurrent_link"{% endifequal %}{% endifequal %} href="{{page.url}}">{{ page.name }}</a>
+                                   </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        <div style="clear:both;"></div>
+                        
+
+                        <div id="content_holder">
+                            {% if featureboxes %}
+                            <div id="feature">
+                                {% for f in featureboxes %}
+                                    <div class="fbox rounded_border"><a href="{{ f.link }}"><img src="{{ f.picture.url }}" alt="{{ f.link }}" /></a></div>
+                                {% endfor %}
+                            </div>
+                            {% endif %}
+                            {% if hset %}
+                            <div id="image">
+                                {% load thumbnails_tags %}
+                                <div id="indexer" class="rounded_border" style="width: 701px;">
+                                        <div class="over_inner"><img class="rounded" src="{{hset.image.url|thumbnail:"maxwidth=701, maxheight=467"}}" alt="headimage" /></div>
+                            </div>
+                            {% endif %}
+			    <div id="{% if featureboxes %}content{% else %}widecontent{% endif %}" class="rounded">
+                                    <div style="margin-top:17px;">
+                                        <div>{% block content %}{{content}}{% endblock %}</div>
+                                    </div>
+			    </div>
+                        </div>
+                        <div style="clear:both;"></div>
+                        <div id="footer">
+                            <div id="copy">&copy; 2013 Tessa Hobbs Garden Design</div>
+                            <div id="email"><a href="mailto:tessahobbs@me.com"><span style="color:#88C540;">Email:</span> tessahobbs@me.com</a></div>
+                        
+                        <div>
+                                <div id="footmenu">
+                                
+                                        {% load smartpage_tags %}{% smartpage_list "footer" as pages %}
+                            <ul>
+                                {% for page in pages %}
+                                    <li><a {% ifequal request_meta.PATH_INFO page.url %}class="fzcurrent_link"{% else %}{% ifequal sp.url page.url %}class="fzcurrent_link"{% else %}class="fnoncurrent_link"{% endifequal %}{% endifequal %} href="{{page.url}}">{{ page.name }}</a></li>
+                                {% endfor %}
+                            </ul>
+                                </div>
+                        <p style="text-align:center; font-size:0.8em;">This site uses session cookies for navigation and analytical purposes, use of this site implies your specific consent</p>
+                        </div>
+                                                    
+                        </div>
+		</div>
+
+
+<div id="underfoot"></div>
+        <script type="text/javascript">
+                <!--
+                $(document).ready(function(){
+                        $('#indexer').innerfade({
+                                animationtype: 'fade',
+                                speed: 'slow',
+                                timeout: '5000',
+                                type: 'sequence',
+                                containerheight: '0px'
+                        });
+                });
+                -->
+                </script>
+{% comment %}
+<div id="test">
+                        <div id="footer" style="width:980px; margin-left: auto; margin-right: auto;">
+                            <div style="margin-left: -120px; padding-top: 50px; width: 980px;">
+                                <div id="copy">&copy; 2013 Tessa Hobbs Garden Design</div>
+                                <div id="email"><a href="mailto:tessahobbs@me.com"><span style="color:#88C540;">Email:</span> tessahobbs@me.com</a></div>
+                                <div>
+                                    <div id="footmenu">
+                                        {% load smartpage_tags %}{% smartpage_list "footer" as pages %}
+                                        <ul>
+                                            {% for page in pages %}
+                                                <li><a {% ifequal request_meta.PATH_INFO page.url %}class="fzcurrent_link"{% else %}{% ifequal sp.url page.url %}class="fzcurrent_link"{% else %}class="fnoncurrent_link"{% endifequal %}{% endifequal %} href="{{page.url}}">{{ page.name }}</a></li>
+                                            {% endfor %}
+                                        </ul>
+                                    </div>
+                                    <p style="text-align:center; font-size:0.8em;">This site uses session cookies for navigation and analytical purposes, use of this site implies your specific consent</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+</div>
+{% endcomment %}
+	</body>
+</html>
+{% endautoescape %}

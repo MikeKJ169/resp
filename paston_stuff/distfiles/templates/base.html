@@ -1,0 +1,38 @@
+{% autoescape off %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+        <head> 
+        <meta http-equiv="X-UA-Compatible" content="IE=7" />
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+
+        {% block meta_title %}<title>{% if meta_title %}{{meta_title}}{% else %}{% if title %}{{title}}{% else %}Default title - change me{% endif %}{% endif %}</title>{% endblock %}
+        {% block meta_desc %}<meta name="description" content="{% if meta_desc %}{{meta_desc}}{% else %}Default description - change me{% endif %}" />{% endblock %}
+        {% block meta_keywords %}<meta name="keywords" content="{% if meta_keywords %}{{meta_keywords}}{%else%}Default, keywords, change, me{%endif%}" />{% endblock %}
+
+		<meta name="robots" content="index,follow" />
+		<link rel="stylesheet" href="/media/default.css" />
+		<link rel="stylesheet" media="screen" href="/media/css/screen.css" />
+		{% block extrahead %}{% endblock %}
+	</head>
+
+	<body>
+		<div id="container">
+			<div id="header"></div>
+
+			<div id="menubar">
+				<ul>
+					{% load smartpage_tags %}{% htmllistitems "main-menu" %}
+				</ul>
+			</div>
+			<div id="breadcrumbs">{{breadcrumbs}}</div>
+
+			<div id="content">
+				{% block pageheader %}<h2>{{ title }}</h2>{% endblock %}
+						{% block content %}{{content}}{% endblock %}
+			</div>
+
+			<div id="footer"></div>
+		</div>
+	</body>
+</html>
+{% endautoescape %}

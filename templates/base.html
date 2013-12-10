@@ -1,0 +1,103 @@
+{% autoescape off %}
+<!DOCTYPE html>
+        <head> 
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+
+        {% block meta_title %}<title>{% if meta_title %}{{meta_title}}{% else %}{% if title %}{{title}}{% else %}Default title - change me{% endif %}{% endif %}</title>{% endblock %}
+        {% block meta_desc %}<meta name="description" content="{% if meta_desc %}{{meta_desc}}{% else %}Default description - change me{% endif %}" />{% endblock %}
+        {% block meta_keywords %}<meta name="keywords" content="{% if meta_keywords %}{{meta_keywords}}{%else%}Default, keywords, change, me{%endif%}" />{% endblock %}
+
+		<meta name="robots" content="index,follow" />
+		<link rel="stylesheet" media="screen" href="/media/css/default.css" />
+                <script type="text/javascript" src="/media/js/jquery-1.9.1.min.js"></script>
+                <script type="text/javascript" src="/media/js/jquery.innerfade.js"></script>
+                <script type="text/javascript" src="/media/js/runOnLoad.js"></script>
+
+		{% block extrahead %}{% endblock %}
+	</head>
+
+	<body>
+                {% load thumbnails_tags %}
+		<div id="container">
+			<div id="header">
+                            <div id="img_wrap"><img src="/media/images/base/header.jpg" /></div>
+                        </div>
+                        <div id="menu">
+                            {% load smartpage_tags %}{% smartpage_list "main-menu" as pages %}
+                            <ul>
+                                {% for page in pages %}
+                                    <li style="padding: 0px 10px;"><a {% ifequal request_meta.PATH_INFO page.url %}class="zcurrent_link"{% else %}{% ifequal sp.url page.url %}class="zcurrent_link"{% else %}class="noncurrent_link"{% endifequal %}{% endifequal %} href="{{page.url}}">{{ page.name }}</a>
+                                   </li>
+                                {% endfor %}
+                                   <li class="red"><a href="">T: Telephone Nbr</a></li>
+                                   <li class="redred"><a href="mailto:mike_k_jones@hotmail.com">email address</a></li>
+                                     
+                            </ul>
+                        </div>
+                        <div id="content_holder">
+                            <div class="line"></div>
+			    <div id="{% if feature %}content{% else %}widecontent{% endif %}">
+                                <div style="margin-top:17px;">
+                                    <div>{% block content %}{{content}}{% endblock %}</div>
+                                </div>
+                            </div>
+                                {% if feature %}
+                                    <div id="right_block">
+                                        {% for f in feature %}
+                                            <div class="fbox_holder" {% if f.box_bkgnd_color %}style="background-color:#{{ f.box_bkgnd_color }};"{% endif %}>
+                                                {% if f.image %}
+                                                    <div class="fbox_image"><a href="{{ f.link }}" {% ifequal f.external_link 1 %} target="_blank"{% endifequal %}><img src="{{ f.image.url }}" alt="{{ f.title }}" /></a></div>
+                                                {% else %}
+                                                    <div class="fbox_title" {% if f.box_text_color %}style="color:#{{ f.box_text_color }};"{% endif %}>&nbsp;<a href="{{ f.link }}"{% ifequal f.external_link 1 %} target="_blank"{% endifequal %}>{{ f.title }}</a></div>
+                                                {% endif %}
+                                                {% if f.text %}
+                                                    <div class="fbox_text" {% if f.box_text_color %}style="color:#{{ f.box_text_color }};"{% endif %}>{{ f.text }}</div>
+                                                {% endif %}
+                                                <div class="flash"><a href="{{ f.link }}" {% ifequal f.external_link 1 %} target="_blank"{% endifequal %}><img src="/media/images/base/more_detail.jpg" alt="more detail" /></a></div>
+                                            </div>
+                                        {% endfor %}
+                                    </div>
+                                {% endif %}
+                            <div style="clear:both;"></div>
+                            <div class="line"></div>
+                            <div class="block">
+                                <div class="owner">Some message goes here</div>
+                                <div class="strap">"Some strap line goes here"</div>
+                            </div>
+                            <div class="line"></div>
+                        </div>
+                        <div style="clear:both;"></div>
+                        <div id="footer_base">
+                        
+                            <div>
+                                <div id="footmenu">
+                                {% load smartpage_tags %}{% smartpage_list "foot-menu" as pages %}
+                                <ul>
+                                    {% for page in pages %}
+                                        <li><a {% ifequal request_meta.PATH_INFO page.url %}class="fzcurrent_link"{% else %}{% ifequal sp.url page.url %}class="fzcurrent_link"{% else %}class="fnoncurrent_link"{% endifequal %}{% endifequal %} href="{{page.url}}">{{ page.name }}</a></li>
+                                    {% endfor %}
+                                </ul>
+                                </div>
+                            </div>
+                            <div style="text-align:center; font-size:9px; color:#CCC4BB; clear: both; margin-top: 10px;">This site uses session cookies for navigation and analytical purposes, use of this site implies your specific consent</div>                         
+                        </div>
+		</div>
+
+
+<div id="underfoot"></div>
+        <script type="text/javascript">
+                <!--
+                $(document).ready(function(){
+                        $('#indexer').innerfade({
+                                animationtype: 'fade',
+                                speed: 'slow',
+                                timeout: '5000',
+                                type: 'sequence',
+                                containerheight: '0px'
+                        });
+                });
+                -->
+                </script>
+	</body>
+</html>
+{% endautoescape %}

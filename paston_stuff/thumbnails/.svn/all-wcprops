@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/paston_stuff/!svn/ver/208/branches/paston_stuff_for_1.0/paston_stuff/thumbnails
+END
+__init__.py
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/paston_stuff/!svn/ver/165/branches/paston_stuff_for_1.0/paston_stuff/thumbnails/__init__.py
+END
+utils.py
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/paston_stuff/!svn/ver/208/branches/paston_stuff_for_1.0/paston_stuff/thumbnails/utils.py
+END
+field.py
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/paston_stuff/!svn/ver/206/branches/paston_stuff_for_1.0/paston_stuff/thumbnails/field.py
+END
+models.py
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/paston_stuff/!svn/ver/165/branches/paston_stuff_for_1.0/paston_stuff/thumbnails/models.py
+END
+decorators.py
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/paston_stuff/!svn/ver/194/branches/paston_stuff_for_1.0/paston_stuff/thumbnails/decorators.py
+END

@@ -1,0 +1,5 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<p>Sorry, that page doesn't currently exist. <a href="/admin/smartpages/smartpage/add/?name={{pagename|urlencode}}">Click here</a> if you would like to make a SmartPage called '{{pagename}}'.</p>
+{% endblock %}

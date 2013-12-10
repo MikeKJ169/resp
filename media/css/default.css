@@ -1,0 +1,348 @@
+
+body {
+    background-color:#6E6E6E;
+    color:#8E7874; 
+    font-family: Verdana;
+}
+
+.mceContentBody {
+    background-color: #FFFFFF;
+    color: #8E7874;
+}
+
+#container {
+    max-width: 990px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color:#FFFFFF;
+}
+
+#header {
+    width:100%;
+}
+
+#img_wrap { 
+    max-width: 100%
+    height: auto;
+    position: relative;
+    display: block;
+    margin:0 auto;
+}
+
+#img_wrap img {
+    width: 100% !important;
+    height: 100% !important;
+    display: block;
+}
+
+#menu {
+    background-color: #FFFFFF;
+    margin-top: -8px;
+}
+
+div#menu ul { display: block; list-style: none; width: 100%; margin-left:-40px; margin-top: 0px; }
+div#menu li{ float: left; position: relative; list-style: none; width:120px; margin-top: 0px; text-align: center;}
+div#menu li ul {  display: none; position: absolute; top: 2.7em; left: 0; list-style: none; margin: 0; padding: 3px 0px 3px 0px;}
+div#menu li:hover ul, div#menu li.over ul{ display: block; clear: left; z-index:99;}
+
+
+div#menu a, div#menu a:link, div#menu a:visited, div#menu a:active {
+        display: block;
+        text-decoration: none;
+        font-size: 15px;
+        padding:  12px 0px 0px 0px;
+        font-weight: bold;
+        margin: 0px 0px 0px 0px;
+        color:#8E7874;
+
+}
+
+
+div#menu a:hover { text-decoration: none; color:#8E7874; background-color:#F2EFEC; }
+
+div#menu li.main { padding: 0px 10px; width:120px; }
+div#menu li.red a  { width: 170px; color:#FF0000; background-color: #FFFFFF; }
+div#menu li.redred a  { margin-left: 60px; width: 200px; color:#FF0000; background-color: #FFFFFF; }
+
+
+.zcurrent_link {
+        background-color: #F2EFEC;
+        color:#8E7874;
+        height: 33px;
+        
+}
+.noncurrent_link {
+        color: #8E7874;
+        height: 33px;
+      
+}
+
+.line { height: 1px; background-color:#BAB0A6; width: 98%; margin-left: 5px; }
+.block { background-color:#F4F3F1; width: 98%; margin: 3px 0px 3px 5px; height: 31px; font-size: 0.8em; font-style: italic;} 
+.owner { float: left; width: 58%; padding-left: 32px; padding-top: 5px; }
+.strap { float: left; padding-top: 5px; padding-left: 60px;}
+
+#content_holder { clear: both; width: 100%; padding-top: 8px;}
+
+#content {
+    float:left;
+    width: 58%;
+    padding: 22px 40px;
+    background: #FFFFFF;
+    color:#8E7874;
+    font-size: 14px;
+    line-height: 1.7em;
+}
+
+#widecontent {
+    float:left;
+    width: 90%;
+    padding: 22px 40px;
+    background: #FFFFFF;
+    color:#8E7874;
+    font-size:14px;
+    line-height: 1.7em;
+}
+
+
+#right_block { float: left; width: 28%; margin-top: 30px; margin-bottom: 20px;}
+.fbox_holder { width: 100%; padding: 4% 4% 15% 4%; }
+.fbox_image { 
+    max-width: 100%;
+    height: auto;
+    position: relative;
+    display: block;
+    margin:0 auto;
+}
+
+.fbox_image img {
+    width: 100% !important;
+    height: 100% !important;
+    display: block;
+}
+
+.fbox_text { font-size: 0.9em; width: 99%;}
+
+.fbox_title_holder {
+    background-image: url(/media/images/base/feature_head.jpg);
+    background-repeat: no-repeat;
+    height: 46px;
+}
+
+.fbox_title {
+    font-size: 16px;
+    font-weight: bold;
+    color: #8E7874;
+    padding-top: 12px;
+}
+
+.fbox_title a {     
+    font-size: 16px;
+    font-weight: bold;
+    color: #8E7874;
+    text-decoration: none;
+    margin: 20px 0px 0px 60px;
+}
+
+.flash {
+    float: right;
+    max-width: 100%;
+    height: auto;
+    position: relative;
+    display: block;
+    margin:0 auto;
+}
+
+.flash img {
+    width: 100% !important;
+    height: 100% !important;
+    display: block;
+}
+
+
+#footer {
+    margin-top: 110px;
+    color: #8E7874;
+}
+
+#footer_base {
+    margin-top: 0px;
+    color: #8E7874;
+    padding: 15px;
+    background-color:#FFFFFF;
+}
+
+#copy {
+    float: left;
+}
+
+#email {
+    float: right;
+}
+
+#email_base {
+    float: right;
+    color:#8E7874;
+}
+
+#email_base a { color:#8E7874; text-decoration: none; }
+
+#footmenu {
+    padding-left: 22px;
+    margin-bottom: 10px;
+}
+
+#footmenu ul {
+        width: 85%;
+        display: inline;
+        list-style: none;
+}
+
+#footmenu li {
+        float: left;
+        position: relative;
+        width:25%;
+}
+#footmenu li ul {
+        display: none;
+        position: absolute;
+        top: 0em;
+        left: 0.1em;
+        list-style: none;
+        padding: 10px 0px 10px 0px;
+}
+
+#footmenu li:hover ul, div#menu li.over ul{
+        display: block;
+        clear: left;
+}
+
+
+#footmenu a, #footmenu a:visited, #footmenu a:active, #footmenu a:link {color:#CCC4BB; font-size:10px; text-decoration:none; font-weight:bold;}
+#footmenu a:hover {color:#CCC4BB;}
+
+/* Form Layout */
+form ul, form ol { list-style: none; }
+input[type=radio] { margin-right: 15px;}
+ul li label { float: none; width: auto; display: inline; margin: 0px 0px 5px 0px; list-style: none;}
+label { display: block; padding:0 1em 3px 0; float:left; width:10em; }
+input, textarea, select { margin:2px 0; padding:2px 3px; vertical-align:middle; font-weight:normal; font-size:0.9em; }
+input[type=text] { width: 250px;}
+textarea { vertical-align:top !important; width: 250px; }
+select { font-size: 0.9em; }
+form.not_styled label { float: none; width: auto; padding: 0; display: inline; }
+
+a img {border: none; }
+
+
+#underfoot { color:#C0C0C0; width: 100%; margin-left:auto; margin-right: auto; font-size: 8px; padding-top:10px; text-align:center;}
+
+h1 { color:#8E7874; font-size: 1.8em; font-weight: normal; margin-top: -5px; }
+h2 { color:#8E7874; font-size: 1.7em; font-weight: normal; margin-top: -5px; }
+h3 { color:#8E7874; font-size: 1.6em; font-weight: normal; margin-top: -5px; }
+h4 { color:#8E7874; font-size: 1.5em; font-weight: normal; margin-top: -5px; }
+h5 { color:#8E7874; font-size: 1.4em; font-weight: normal; margin-top: -5px; }
+h6 { color:#8E7874; font-size: 1.3em; font-weight: normal; margin-top: -5px; }
+
+#footer a { color:#8E7874; text-decoration: none; }
+
+a img { border: none; }
+
+@media only screen and ( max-width: 990px ) {
+    div#menu li.main { padding: 0px 10px; width:110px; }
+    div#menu li.red a  { width: 120px; color:#FF0000; background-color: #FFFFFF; }
+    div#menu li.redred a  { margin-left: 0px; width: 120px; color:#FF0000; background-color: #FFFFFF; }
+} 
+
+@media only screen and (max-width: 800px) {
+    div#widecontent { width: 80%; }
+    div#menu li{ float: left; position: relative; list-style: none; width:110px; margin-top: 0px; text-align: center;}
+    div#menu li.red a  { width: 120px; color:#FF0000; background-color: #FFFFFF; }
+    div#menu li.redred a  { margin-left: 0px; width: 120px; color:#FF0000; background-color: #FFFFFF; }
+    .block { background-color:#F4F3F1; width: 98%; margin: 3px 0px 3px 5px; height: 50px; font-size: 0.8em; font-style: italic;}
+    .owner { float: left; width: 58%; padding-left: 32px; padding-top: 5px; }
+    .strap { float: left; padding-top: 5px; padding-left: 32px;}
+
+    div#menu a, div#menu a:link, div#menu a:visited, div#menu a:active {
+        display: block;
+        text-decoration: none;
+        font-size: 12px;
+        padding:  12px 0px 0px 0px;
+    }
+    #right_block {
+        clear: left;
+        width: 37%;
+        margin-bottom: 30px;
+        padding-left: 22px;
+    }
+}
+
+
+@media only screen and (max-width: 600px) {
+    div#widecontent { width:50%; padding-right: 0px; }
+    div#menu li{ float: left; position: relative; list-style: none; width:50%; margin-top: 0px; text-align: center;}
+    div#menu li.red a  { width: 90%; color:#FF0000; margin-left: 10px; background-color: #FFFFFF; }
+    div#menu li.redred a  { margin-left: 10px; width: 30% color:#FF0000; background-color: #FFFFFF; }
+    .block { background-color:#F4F3F1; width: 98%; margin: 3px 0px 3px 5px; height: 50px; font-size: 0.8em; font-style: italic;}
+    .owner { float: left; width: 58%; padding-left: 32px; padding-top: 5px; }
+    .strap { float: left; padding-top: 5px; padding-left: 32px;}
+
+    div#menu a, div#menu a:link, div#menu a:visited, div#menu a:active {
+        display: block;
+        text-decoration: none;
+        font-size: 12px;
+        padding:  12px 0px 0px 0px;
+    }
+    #right_block {
+        clear: left;
+        width: 60%;
+        margin-bottom: 30px;
+        padding-left: 22px;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    div#menu li{ float: left; position: relative; list-style: none; width:30%; margin-top: 0px; text-align: center;}
+    div#menu li.red a  { width: 90%; color:#FF0000; margin-left: 10px; background-color: #FFFFFF; }
+    div#menu li.redred a  { margin-left: 32px; width: 90%; color:#FF0000; background-color: #FFFFFF; }
+    .block { background-color:#F4F3F1; width: 98%; margin: 3px 0px 3px 5px; height: 50px; font-size: 0.8em; font-style: italic;}
+    .owner { float: left; width: 98%; padding-left: 32px; padding-top: 5px; }
+    .strap { float: left; padding-top: 5px; padding-left: 32px;}
+
+    div#menu a, div#menu a:link, div#menu a:visited, div#menu a:active {
+        display: block;
+        text-decoration: none;
+        font-size: 10px;
+        padding:  12px 0px 0px 0px;
+    }
+    #right_block {
+        clear: left;
+        width: 80%;
+        margin-bottom: 30px;
+        padding-left: 22px;
+    }
+}
+
+@media only screen and (max-width: 320px) {
+    div#widecontent { width:30%; }
+    div#menu li{ float: left; position: relative; list-style: none; width:10%; margin-top: 0px; text-align: center;}
+    div#menu li.red a  { width: 90%; color:#FF0000; margin-left: 10px; background-color: #FFFFFF; }
+    div#menu li.redred a  { margin-left: 32px; width: 30%; color:#FF0000; background-color: #FFFFFF; }
+    .block { background-color:#F4F3F1; width: 98%; margin: 3px 0px 3px 5px; height: 50px; font-size: 0.8em; font-style: italic;}
+    .owner { float: left; width: 98%; padding-left: 32px; padding-top: 5px; }
+    .strap { float: left; padding-top: 5px; padding-left: 32px;}
+    .fbox_title a { font-size: 13px; }
+    div#menu a, div#menu a:link, div#menu a:visited, div#menu a:active {
+        display: block;
+        text-decoration: none;
+        font-size: 10px;
+        padding:  12px 0px 0px 0px;
+    }
+    #right_block {
+        clear: left;
+        width: 80%;
+        margin-bottom: 30px;
+        padding-left: 22px;
+    }
+}
+

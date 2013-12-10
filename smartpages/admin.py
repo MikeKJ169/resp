@@ -1,0 +1,158 @@
+from django.contrib import admin
+from smartpages.models import Category, MenuLink, SmartPage, Image#, FeatureBox
+from django import forms
+from django.utils.translation import gettext_lazy as _
+from django.http import HttpResponse, HttpResponseRedirect
+from django.utils.encoding import force_unicode
+
+class CategoryForm( forms.ModelForm ):
+    pass
+
+class CategoryAdmin( admin.ModelAdmin ):
+    list_display = ['name',]
+    form = CategoryForm
+    fieldsets = (
+        (None,  {
+            'fields': ('name', 'parent',)
+        }),
+        ('Advanced options', {
+            'classes': ('collapse',),
+            'fields': ('priority','slug_in_url',)
+        }),
+        ('Search optimisation', {
+            'classes': ('collapse',),
+            'fields': ('meta_title', 'meta_desc', 'meta_keywords', )
+        }),
+        )
+
+admin.site.register( Category, CategoryAdmin )
+
+
+class SmartPageForm( forms.ModelForm ):
+    slug = forms.CharField( required = False )
+    name = forms.CharField()
+    content = forms.CharField(widget=forms.widgets.Textarea( attrs = {'class':'vSmartPageTextField'} ))
+    meta_title = forms.CharField( required = False )
+    meta_desc = forms.CharField( required = False )
+    meta_keywords = forms.CharField( required = False )
+    priority = forms.IntegerField( help_text='Small number => appears early in lists', required = False, initial=50 )
+    template_name = forms.CharField( help_text="Example: 'smartpages/contact_page'.", initial = "smartpages/default.html" )
+
+    # For the tinymce image uploader:
+    editor_timestamp = forms.IntegerField()
+    editor_timestamp.initial = "12345678"
+    editor_uniqid = forms.CharField()
+    editor_uniqid.initial = "HGFU"
+
+    # For menus, sections etc:
+    categories = forms.ModelMultipleChoiceField(Category.objects, required = False )
+
+
+    
+class SmartPageAdmin( admin.ModelAdmin ):
+    form = SmartPageForm
+    fieldsets = (
+        (None, {
+            'fields': ('name', 'content',)
+        }),
+        ('Advanced options', {
+            'classes': ('collapse',),
+            'fields': ('template_name','categories','priority','editor_uniqid','editor_timestamp','slug')
+        }),
+        ('Search optimisation', {
+            'classes': ('collapse',),
+            'fields': ('meta_title', 'meta_desc', 'meta_keywords', )
+        }),
+        #(None, {
+        #    'classes': ('collapse',),
+        #    'fields': ('editor_timestamp', 'editor_uniqid', 'slug',)}),
+        )
+    search_fields = ('slug', 'name')
+    list_filter = ('categories',)
+    list_display = ['slug', 'name', 'page_link',]
+    ordering = ('name', 'priority', 'slug',)
+    prepopulate_from = {'slug': ('name,')}
+    class Media:
+        js = (
+            '/media-tiny_mce/tiny_mce.js',
+            #'/media-tiny_mce/tiny_mce_gzip.php',
+            '/media/js/smartpage_editor.js',
+        )
+
+
+admin.site.register( SmartPage, SmartPageAdmin )
+
+class ImageForm( forms.ModelForm ):
+    pass
+
+    
+class ImageAdmin( admin.ModelAdmin ):
+    def response_add(self, request, obj, post_url_continue='../%s/'):
+        """
+        Determines the HttpResponse for the add_view stage.
+        """
+        opts = obj._meta
+        pk_value = obj._get_pk_val()
+        
+        msg = _('The %(name)s "%(obj)s" was added successfully.') % {'name': force_unicode(opts.verbose_name), 'obj': force_unicode(obj)}
+        # Here, we distinguish between different save types by checking for
+        # the presence of keys in request.POST.
+        if request.POST.has_key("_continue"):
+            self.message_user(request, msg + ' ' + _("You may edit it again below."))
+            if request.POST.has_key("_popup"):
+                post_url_continue += "?_popup=1"
+            return HttpResponseRedirect(post_url_continue % pk_value)
+        
+        if request.POST.has_key("_popup"):
+            obj.save()
+            return HttpResponse('<script type="text/javascript" src="/media-tiny_mce/tiny_mce_popup.js"></script><script>tinyMCEPopup.execCommand(\'mceDjangoInsertImageHtml\',false,\''+obj.picture.url+'\');</script><script type="text/javascript">opener.dismissAddAnotherPopup(window, %s, "%s");</script>' % \
+                     (pk_value, str(obj).replace('"', '\\"')))
+        elif request.POST.has_key("_addanother"):
+            self.message_user(request, msg + ' ' + (_("You may add another %s below.") % force_unicode(opts.verbose_name)))
+            return HttpResponseRedirect(request.path)
+        else:
+            self.message_user(request, msg)
+
+            # Figure out where to redirect. If the user has change permission,
+            # redirect to the change-list page for this object. Otherwise,
+            # redirect to the admin index.
+            if self.has_change_permission(request, None):
+                post_url = '../'
+            else:
+                post_url = '../../../'
+            return HttpResponseRedirect(post_url)
+    fieldsets = (
+        (None, {
+            'fields': ('picture',)
+        }),
+        (None, {
+            'classes': ('collapse',),
+            'fields': ('smartpage', 'editor_timestamp', 'editor_uniqid')
+        }),
+        )
+    search_fields = ('picture',)
+    ordering = ('picture',)
+
+admin.site.register( Image, ImageAdmin )
+
+class MenuLinkOptions( admin.ModelAdmin ):
+    fieldsets = (
+        (None,  {
+            'fields': ('name', 'slug','priority','categories','new_window')
+        }),
+        )
+    list_display=['name','slug','priority',]
+
+admin.site.register( MenuLink, MenuLinkOptions )
+
+
+#class FeatureBoxOptions( admin.ModelAdmin ):
+#    list_display = ('link', 'priority',)
+#    class Media:
+#        js = (
+#            '/media-tiny_mce/tiny_mce.js',
+#            #../media-tiny_mce/tiny_mce_gzip.php',
+#            '../media/js/editor.js',
+#            )
+    
+#admin.site.register( FeatureBox, FeatureBoxOptions )

@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block meta_title %}<title>News - {{newsitem.title}}</title>{% endblock %}
+
+{% block content %}
+{% if newsitem %}
+{% load thumbnails_tags %}
+<h2>{% if newsitem.get_picture_url %}<img style="float:right;border-style:solid;border-width:1px 2px 2px 1px;border-color:#cccccc;" src="{{ newsitem.get_picture_url|thumbnail:"width=200" }}">{% endif %}{{ newsitem.title }}</h2>
+        <p style="font-style: italic">{{ newsitem.short_desc }}</p>
+        <p>{{ newsitem.details }}</p>
+        <p style="font-size: 10px">Date Added: {{ newsitem.pub_date|date:"F jS  Y" }}</p>
+{% else %}
+    <p>Invalid News ID. Please go back and try again</p>
+{% endif %}
+{% endblock %}
+ 

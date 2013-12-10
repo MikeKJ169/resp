@@ -1,0 +1,7 @@
+{% if latest_news_list %}
+<h3>Latest news</h3>
+{% endif %}
+{% for newsitem in latest_news_list %}
+<h4><a href="{{newsitem.get_absolute_url}}">{{newsitem.title}}</a></h4>
+<p>{{newsitem.short_desc}}</p>
+{% endfor %}

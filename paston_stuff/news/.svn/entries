@@ -1,0 +1,106 @@
+8
+
+dir
+211
+http://dev.paston.co.uk/paston_stuff/branches/paston_stuff_for_1.0/paston_stuff/news
+http://dev.paston.co.uk/paston_stuff
+
+
+
+2009-03-23T09:45:44.197149Z
+189
+m.harris
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+aea58f7d-1111-0410-bdb3-df82256382a1
+
+admin.py
+file
+
+
+
+
+2009-03-02T11:21:38.000000Z
+9586af396c6d4109fc2960101f9889ee
+2009-03-02T11:27:16.032214Z
+187
+m.harris
+
+manager.py
+file
+
+
+
+
+2009-02-04T11:42:09.000000Z
+43b160b1236c7e997af86c64c2483bfa
+2008-04-15T10:10:34.680882Z
+161
+dreynolds
+
+views.py
+file
+
+
+
+
+2009-02-26T11:15:34.000000Z
+a0f372c754761bb2527366a52af1177e
+2009-02-26T11:16:24.380694Z
+184
+m.harris
+
+__init__.py
+file
+
+
+
+
+2009-02-04T11:42:09.000000Z
+d41d8cd98f00b204e9800998ecf8427e
+2006-05-10T16:39:14.306528Z
+50
+joe
+
+templatetags
+dir
+
+models.py
+file
+
+
+
+
+2009-03-23T09:45:30.000000Z
+46ccaf10840f1f2f13ed0e6f26b1385c
+2009-03-23T09:45:44.197149Z
+189
+m.harris
+
+urls.py
+file
+
+
+
+
+2009-02-04T11:42:09.000000Z
+5d6f05b02c0c1bbad0c608e914366234
+2008-04-15T10:10:34.680882Z
+161
+dreynolds
+
+templates
+dir
+

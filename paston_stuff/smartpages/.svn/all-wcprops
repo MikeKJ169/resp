@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/paston_stuff/!svn/ver/210/branches/paston_stuff_for_1.0/paston_stuff/smartpages
+END
+admin.py
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/paston_stuff/!svn/ver/201/branches/paston_stuff_for_1.0/paston_stuff/smartpages/admin.py
+END
+management.py
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/paston_stuff/!svn/ver/166/branches/paston_stuff_for_1.0/paston_stuff/smartpages/management.py
+END
+views.py
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/paston_stuff/!svn/ver/209/branches/paston_stuff_for_1.0/paston_stuff/smartpages/views.py
+END
+__init__.py
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/paston_stuff/!svn/ver/165/branches/paston_stuff_for_1.0/paston_stuff/smartpages/__init__.py
+END
+utils.py
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/paston_stuff/!svn/ver/209/branches/paston_stuff_for_1.0/paston_stuff/smartpages/utils.py
+END
+models.py
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/paston_stuff/!svn/ver/209/branches/paston_stuff_for_1.0/paston_stuff/smartpages/models.py
+END
+urls.py
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/paston_stuff/!svn/ver/209/branches/paston_stuff_for_1.0/paston_stuff/smartpages/urls.py
+END
